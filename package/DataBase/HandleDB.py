@@ -2,15 +2,16 @@ import psycopg2 as psycopg2
 from .config import config
 
 
-def create_table_esp():
+def create_table_deck():
     """Create tables in the PostgreSQL database"""
     command = (
         """
-        CREATE TABLE esp (
-            esp_id SERIAL PRIMARY KEY, 
-            esp_name VARCHAR(255) NOT NULL,
-            esp_location VARCHAR(255) NOT NULL,
-            UNIQUE (esp_name)
+        CREATE TABLE deck (
+            deck_id SERIAL PRIMARY KEY, 
+            deck_name VARCHAR(255) NOT NULL,
+            deck_format VARCHAR(255) NOT NULL,
+            deck_list cards [],
+            UNIQUE (deck_id)
         )
         """
     )
